@@ -19,13 +19,13 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int REQUEST_ENABLE_BT = 1;
+
     private Button boutton_recherche ;
 
     private Button boutton_quitter ;
 
     private EditText pseudo ;
-    private ArrayList<String> mArrayAdapter = new ArrayList<String>();
+
 
 
     @Override
@@ -46,39 +46,8 @@ public class MainActivity extends AppCompatActivity {
         boutton_recherche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Context context = getApplicationContext();
-                CharSequence text="" ;
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
 
-                BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-                if (mBluetoothAdapter == null) {
-                    // Device does not support Bluetooth
-                }
-
-                if (!mBluetoothAdapter.isEnabled()) {
-                    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-                }
-
-                Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
-                // If there are paired devices
-                if (pairedDevices.size() > 0) {
-                    // Loop through paired devices
-                    for (BluetoothDevice device : pairedDevices) {
-                        // Add the name and address to an array adapter to show in a ListView
-                        mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
-                    }
-                    for ( String s : mArrayAdapter ){
-                        text = s ;
-                        toast.show();
-                        Log.i("msg",s);
-                    }
-                }
-                else {
-                    text = "Aucun joueurs trouvés";
-                    toast.show();
-                }
+                startActivity(new Intent(getApplicationContext(), ListeJoueurActivity.class));
             }
         });
     }
