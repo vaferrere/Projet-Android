@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import persistance.MySQLiteManager;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -26,7 +28,22 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText pseudo ;
 
+    private void monTest()
+    {
+        MySQLiteManager ma = new MySQLiteManager(getBaseContext());
+        ma.insertTheme("Voyage");
+        //ma.insertReponse("Poule", 1);
+        //List<String> list = ma.getAllThemes();
+        //ma.insertQuestion("Quelle est la capitale de l'Italie ?", 2, 2);
+        //ma.insertReponse("Nevers", 2);
+        //ma.insertReponse("Rome", 2);
+        List<String> list = ma.getAllThemes();
 
+        for(String s : list)
+        {
+            Log.i("SQLite : ", s);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
         boutton_quitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                //finish();
+                monTest();
             }
         });
 
