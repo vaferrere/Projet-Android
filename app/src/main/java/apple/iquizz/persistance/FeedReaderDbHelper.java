@@ -1,4 +1,4 @@
-package persistance;
+package apple.iquizz.persistance;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,7 +21,6 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(FeedReaderContract.SQL_DELETE_QUESTION);
         db.execSQL(FeedReaderContract.SQL_CREATE_THEME);
         db.execSQL(FeedReaderContract.SQL_CREATE_QUESTION);
         db.execSQL(FeedReaderContract.SQL_CREATE_REPONSE);

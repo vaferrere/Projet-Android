@@ -1,4 +1,4 @@
-package persistance;
+package apple.iquizz.persistance;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,29 +8,33 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import persistance.FeedReaderContract.*;
+import apple.iquizz.model.Question;
+import apple.iquizz.model.Reponse;
+import apple.iquizz.model.Theme;
+import apple.iquizz.persistance.FeedReaderContract.*;
 
 /**
  * Created by fabiengauthe on 06/03/2016.
  */
-public class MySQLiteManager {
+public class MySQLManager {
 
     private FeedReaderDbHelper mdbHelper;
     private SQLiteDatabase db;
 
-    public MySQLiteManager(Context context)
+    public MySQLManager(Context context)
     {
         mdbHelper =  new FeedReaderDbHelper(context);
     }
 
-    public List<String> getAllThemes()
+    public List<Theme> getAllThemes()
     {
         db = mdbHelper.getReadableDatabase();
 
         // Define a projection that specifies which columns from the database
         // you will actually use after this query.
         String[] projection = {
-                FeedReaderContract.tTheme.COLUMN_NAME_THEME,
+                tTheme._ID,
+                tTheme.COLUMN_NAME_THEME,
         };
 
         // How you want the results sorted in the resulting Cursor
@@ -47,11 +51,11 @@ public class MySQLiteManager {
         );
 
         c.moveToFirst();
-        List<String> lesThemes = new ArrayList<String>();
+        List<Theme> lesThemes = new ArrayList<Theme>();
 
-        while (c.isAfterLast() == false)
+        while (!c.isAfterLast())
         {
-            lesThemes.add(c.getString(c.getColumnIndexOrThrow(tTheme.COLUMN_NAME_THEME)));
+            lesThemes.add(new Theme(c.getInt(c.getColumnIndexOrThrow(tTheme._ID)), c.getString(c.getColumnIndexOrThrow(tTheme.COLUMN_NAME_THEME))));
             c.moveToNext();
         }
         return lesThemes;
@@ -72,7 +76,7 @@ public class MySQLiteManager {
         return newRowId;
     }
 
-    public List<String> getReponses(long idQuestion)
+    public List<Reponse> getReponses(long idQuestion)
     {
         db = mdbHelper.getReadableDatabase();
 
@@ -95,11 +99,15 @@ public class MySQLiteManager {
         );
 
         c.moveToFirst();
-        List<String> lesReponse = new ArrayList<String>();
+        List<Reponse> lesReponse = new ArrayList<Reponse>();
 
-        while (c.isAfterLast() == false)
+        while (!c.isAfterLast())
         {
-            lesReponse.add(c.getString(c.getColumnIndexOrThrow(tReponse.COLUMN_NAME_REPONSE)));
+            int id = c.getInt(c.getColumnIndexOrThrow(tReponse._ID));
+            String rep = c.getString(c.getColumnIndexOrThrow(tReponse.COLUMN_NAME_REPONSE));
+            int id_question = c.getInt(c.getColumnIndexOrThrow(tReponse.COLUMN_NAME_QUESTION_ID));
+
+            lesReponse.add(new Reponse(id, rep, id_question));
             c.moveToNext();
         }
         return lesReponse;
@@ -121,7 +129,7 @@ public class MySQLiteManager {
         return newRowId;
     }
 
-    public List<String> getQuestions(long idTheme)
+    public List<Question> getQuestions(long idTheme)
     {
         db = mdbHelper.getReadableDatabase();
 
@@ -145,11 +153,16 @@ public class MySQLiteManager {
         );
 
         c.moveToFirst();
-        List<String> lesQuestions = new ArrayList<String>();
+        List<Question> lesQuestions = new ArrayList<Question>();
 
-        while (c.isAfterLast() == false)
+        while (!c.isAfterLast())
         {
-            lesQuestions.add(c.getString(c.getColumnIndexOrThrow(tQuestion.COLUMN_NAME_QUESTION)));
+            int id = c.getInt(c.getColumnIndexOrThrow(tQuestion._ID));
+            String question = c.getString((c.getColumnIndexOrThrow(tQuestion.COLUMN_NAME_QUESTION)));
+            int idRepVrai = c.getInt(c.getColumnIndexOrThrow((tQuestion.COLUMN_NAME_REPONSE_VRAI_ID)));
+            int id_theme = c.getInt(c.getColumnIndexOrThrow(tQuestion.COLUMN_NAME_THEME_ID));
+
+            lesQuestions.add(new Question(id, question, idRepVrai, id_theme));
             c.moveToNext();
         }
         return lesQuestions;
