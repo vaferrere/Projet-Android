@@ -3,4 +3,7 @@
     <string name="pseudo">pseudo</string>
     <string name="boutton_quitter">Quitter</string>
     <string name="boutton_recherche">Rechercher joueur</string>
+    <string name="no_data_available">Aucun joueur n\'est disponible</string>
+    <string name="bt_retour_recherche">retour</string>
+    <string name="bt_recherche_refresh">rafraîchir</string>
 </resources>

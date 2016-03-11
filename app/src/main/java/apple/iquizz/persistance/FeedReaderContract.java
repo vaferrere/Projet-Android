@@ -1,4 +1,4 @@
-package persistance;
+package apple.iquizz.persistance;
 
 import android.provider.BaseColumns;
 

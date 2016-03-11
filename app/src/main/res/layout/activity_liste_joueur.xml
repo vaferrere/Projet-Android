@@ -12,6 +12,33 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rv_recherche_joueur"></android.support.v7.widget.RecyclerView>
+        android:id="@+id/rv_recherche_joueur"
+        android:layout_above="@+id/bt_retour_recherche"></android.support.v7.widget.RecyclerView>
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/no_data_available" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_retour_recherche"
+        android:id="@+id/bt_retour_recherche"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/empty_view"
+        android:layout_alignStart="@+id/empty_view" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_recherche_refresh"
+        android:id="@+id/bt_recherche_refresh"
+        android:layout_toRightOf="@+id/bt_retour_recherche"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
