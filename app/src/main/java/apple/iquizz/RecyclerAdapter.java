@@ -8,16 +8,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by gadoy on 03/03/2016.
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
-    private ArrayList<String> mDataset;
+    private List<String> mDataset;
 
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public RecyclerAdapter(ArrayList<String> myDataset) {
+    public RecyclerAdapter(List<String> myDataset) {
         mDataset = myDataset;
     }
 
