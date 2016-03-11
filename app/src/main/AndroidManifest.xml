@@ -17,7 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListeJoueurActivity"></activity>
+        <activity android:name=".ListeJoueurActivity" />
+        <activity android:name="apple.view.ChallengeActivity" />
+        <activity android:name=".view.ChallengeActivity"></activity>
     </application>
 
 </manifest>
