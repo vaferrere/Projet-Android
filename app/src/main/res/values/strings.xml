@@ -6,5 +6,9 @@
     <string name="no_data_available">Aucun joueur n\'est disponible</string>
     <string name="bt_retour_recherche">retour</string>
     <string name="bt_recherche_refresh">rafraîchir</string>
+<<<<<<< HEAD
     <string name="bt_mode_serveur">Mode serveur</string>
+=======
+    <string name="label_question">Question</string>
+>>>>>>> origin/master
 </resources>

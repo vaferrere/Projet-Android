@@ -16,7 +16,10 @@ import apple.iquizz.model.Reponse;
 import apple.iquizz.model.Theme;
 import apple.iquizz.persistance.MySQLManager;
 import apple.iquizz.view.ChallengeActivity;
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/master
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,8 +33,11 @@ public class MainActivity extends AppCompatActivity {
     private void monTest()
     {
 
+<<<<<<< HEAD
+=======
        // MySQLiteManager ma = new MySQLiteManager(getBaseContext());
 
+>>>>>>> origin/master
         MySQLManager ma = new MySQLManager(getBaseContext());
 
         //ma.insertTheme("Voyage");
@@ -46,7 +52,12 @@ public class MainActivity extends AppCompatActivity {
         /*for(String s : list)
         {
             Log.i("SQLite : ", s);
+<<<<<<< HEAD
+        }*/
+
+=======
         */
+>>>>>>> origin/master
 
         //ma.insertQuestion("Quelle est la capitale de Paris ?", 2, 1);
         //ma.insertReponse("16ème arrondissement", 1);
@@ -76,7 +87,10 @@ public class MainActivity extends AppCompatActivity {
             Log.i("Reponse : ", r.getReponse());
             Log.i("idQuestion : ", String.valueOf(r.getIdQuestion()));
         }
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/master
     }
 
     @Override
