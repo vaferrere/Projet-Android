@@ -22,6 +22,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         mDataset = myDataset;
     }
 
+
+    public void onClick(View view) {
+        Log.i("test2", "onClick ");
+    }
+
     // Create new views (invoked by the layout manager)
     @Override
     public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,

@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         boutton_recherche = (Button) findViewById(R.id.boutton_recherche);
         pseudo = (EditText) findViewById(R.id.pseudo);
 
+
         boutton_quitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,4 +104,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

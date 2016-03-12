@@ -36,9 +36,16 @@
         android:layout_height="wrap_content"
         android:text="@string/bt_recherche_refresh"
         android:id="@+id/bt_recherche_refresh"
-        android:layout_toRightOf="@+id/bt_retour_recherche"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_mode_serveur"
+        android:id="@+id/bt_mode_serveur"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
